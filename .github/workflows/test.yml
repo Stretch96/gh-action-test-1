@@ -1,0 +1,32 @@
+name: Test
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  run-tests:
+    name: run-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inline
+        run: grep --version
+      - name: Literal Block Scalar
+        run: |
+          grep --version
+      - name: Folded Block Scalar
+        run: >
+          grep
+          --version
+      - name: Literal Block Scalar with slashes
+        run: |
+          grep \
+            --version
+      - name: Folded Block Scalar with slashes
+        run: >
+          grep \
+            --version
+      - name: Folded Block Scalar with indentation
+        run: >
+          grep
+            --version
